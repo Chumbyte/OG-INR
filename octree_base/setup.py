@@ -1,5 +1,6 @@
 from setuptools import Extension, setup
 from Cython.Build import cythonize
+import numpy
 
 # from https://stackoverflow.com/a/9740721/19834294
 # Remove the "-Wstrict-prototypes" compiler option, which isn't valid for C++.
@@ -19,31 +20,36 @@ ext_modules = [
         "octree_defs",
         ["octree_defs.pyx"],
         extra_compile_args=['-fopenmp'],
-        extra_link_args=['-fopenmp']
+        extra_link_args=['-fopenmp'],
+        include_dirs=[numpy.get_include()]
     ),
     Extension(
         "octree_structure",
         ["octree_structure.pyx"],
         extra_compile_args=['-fopenmp'],
-        extra_link_args=['-fopenmp']
+        extra_link_args=['-fopenmp'],
+        include_dirs=[numpy.get_include()]
     ),
     Extension(
         "octree_algo",
         ["octree_algo.pyx"],
         extra_compile_args=['-fopenmp'],
-        extra_link_args=['-fopenmp']
+        extra_link_args=['-fopenmp'],
+        include_dirs=[numpy.get_include()]
     ),
     Extension(
         "octree",
         ["octree.pyx"],
         extra_compile_args=['-fopenmp'],
-        extra_link_args=['-fopenmp']
+        extra_link_args=['-fopenmp'],
+        include_dirs=[numpy.get_include()]
     ),
 ]
 
 setup(
     name='octree',
     ext_modules=cythonize(ext_modules, annotate=True),
+    install_requires=["numpy"]
 )
 
 # Use with `python setup.py build_ext --inplace`

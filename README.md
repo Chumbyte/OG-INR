@@ -79,6 +79,8 @@ These scripts have bash variables for changing the input, major hyperparameters,
 
 This is heavily based of our [DiGS codebase](https://github.com/Chumbyte/DiGS). We also use `trimesh` and `open3d` for manipulating 3D data, `cython` for efficiently implementing the Octree code, `pyvista` for an interactive view of the octree, `pyrallis` for easy configs and arguments, and `wandb` for optional logging. After the paper was published we discovered that `point-cloud-utils` has excellent bindings for very fast approximate nearest neighbours (`nanoflann`) which makes part of the code much faster.
 
+Thanks to [@bearprin](https://github.com/bearprin) for helping with installation issues.
+
 This work has received funding from the European Union's Horizon 2020 research and innovation programme under the Marie Sklodowska-Curie grant agreement No. 893465. S. Gould is a recipient of an ARC Future Fellowship (proj. no. LP200100421) funded by the Australian Government.
 
 ## License and Citation
